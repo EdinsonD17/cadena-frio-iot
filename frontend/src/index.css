@@ -1,0 +1,165 @@
+/* ============================================================
+   CADENA DE FRÍO IoT — DESIGN TOKENS & VISUAL BASE (FASE 1)
+   Minimalist Industrial IoT Architecture
+   Palette: Flat Dark Navy, Surface Tones, Cyan Accent, Amber/Red Alerts
+   ============================================================ */
+
+:root {
+  /* --- PALETA BASE: AZUL MUY OSCURO CASI PLANO Y SUPERFICIES --- */
+  --color-bg-app: #060B14;
+  --color-surface: #0B1324;
+  --color-surface-raised: #101B33;
+  --color-surface-hover: #152445;
+  --color-surface-active: #1A2D54;
+
+  /* --- TEXTO Y TIPOGRAFÍA --- */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-text-dim: #475569;
+
+  /* --- BORDES Y SEPARACIONES (1px con muy baja opacidad) --- */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-hover: rgba(56, 189, 248, 0.30);
+  --border-focus: #38BDF8;
+
+  /* --- ACENTO PRINCIPAL: CIAN --- */
+  --color-cyan-primary: #38BDF8;
+  --color-cyan-hover: #0EA5E9;
+  --color-cyan-dim: rgba(56, 189, 248, 0.10);
+  --color-cyan-border: rgba(56, 189, 248, 0.25);
+
+  /* --- ALERTAS ESTRICTAS: ÁMBAR Y ROJO --- */
+  --color-amber: #F59E0B;
+  --color-amber-hover: #D97706;
+  --color-amber-dim: rgba(245, 158, 11, 0.12);
+  --color-amber-border: rgba(245, 158, 11, 0.30);
+
+  --color-red: #EF4444;
+  --color-red-hover: #DC2626;
+  --color-red-dim: rgba(239, 68, 68, 0.14);
+  --color-red-border: rgba(239, 68, 68, 0.35);
+
+  /* --- RADIOS (Esquinas 12px estándar, sin tarjetas anidadas) --- */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* --- SOMBRAS DISCRETAS (Sin glow ni halos) --- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-dropdown: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+
+  /* --- TIPOGRAFÍA Y ESCALA --- */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+  --font-size-metric: clamp(2.5rem, 4vw, 3.25rem); /* 40-52px */
+  --font-size-label: 0.6875rem; /* 11px */
+  --letter-spacing-label: 0.6px;
+
+  /* --- TRANSICIONES Y TIEMPOS (Máx 200ms) --- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- ALIASES DE COMPATIBILIDAD CON COMPONENTES EXISTENTES --- */
+  --color-white: var(--color-text-primary);
+  --color-white-90: rgba(255, 255, 255, 0.90);
+  --color-white-70: var(--color-text-secondary);
+  --color-white-20: rgba(255, 255, 255, 0.20);
+  --color-white-10: var(--border-default);
+  --color-white-05: var(--border-subtle);
+
+  --blue-electric: #0284C7;
+  --blue-cobalt: #0369A1;
+  --blue-deep-night: var(--color-bg-app);
+  --blue-dark-canvas: #070D18;
+  --blue-slate-card: var(--color-surface);
+  --blue-ice: #BAE6FD;
+  --blue-cyan-soft: var(--color-text-secondary);
+  --blue-cyan-vibrant: var(--color-cyan-primary);
+  --blue-glow: transparent;
+
+  /* Reducción de gradientes ruidosos a planos o sutiles */
+  --gradient-app-bg: var(--color-bg-app);
+  --gradient-card: var(--color-surface);
+  --gradient-card-hover: var(--color-surface-hover);
+  --gradient-btn-primary: var(--color-cyan-primary);
+  --gradient-btn-hover: var(--color-cyan-hover);
+  --gradient-liquid: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(186, 230, 253, 0.6) 30%, rgba(56, 189, 248, 0.8) 100%);
+  --gradient-safe-shading: rgba(56, 189, 248, 0.08);
+
+  --border-card: var(--border-default);
+  --border-card-hover: var(--border-hover);
+  --shadow-glow: none;
+  --shadow-btn: var(--shadow-sm);
+}
+
+/* Reset y base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Tipografía tabular y monoespaciada */
+.mono, .tabular-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Estilos de botones base */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: background-color var(--transition-base),
+              border-color var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-fast);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Scrollbar plano y sutil */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Accesibilidad: Respeta reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
